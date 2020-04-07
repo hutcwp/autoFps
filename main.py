@@ -1,6 +1,6 @@
 import uiautomator2 as u2
 
-from bigo import start_fps, ent_live
+from bigo import start_fps
 
 d = u2.connect()  # connect to device
 print(d.info)

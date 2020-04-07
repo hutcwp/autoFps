@@ -11,21 +11,27 @@ def start_app(d):
     pass
 
 
+def hideLoginDialog(d):
+    print('hideLoginDialog')
+    d(resourceId="sg.bigo.live:id/tv_login_close").click()
+
+
 def ent_live(d):
     print('ent_live')
-    d(resourceId="com.yy.mobile.plugin.homepage:id/living_common_container").click()
+    d(resourceId="sg.bigo.live:id/item_container").click()
     pass
 
 
 def quit_live(d):
     print('quit_live')
-    d(resourceId="com.yy.mobile.plugin.livebasebiz:id/btn_exit_portrait").click()
+    d(resourceId="sg.bigo.live:id/btn_live_video_close").click()
     pass
 
 
 def swipe_live(d):
     print('swipe_live')
     d.swipe_ext("up", box=(500, 100, 500, 1000))
+    # d.swipe_ext("up")
     pass
 
 
@@ -44,7 +50,9 @@ def app_foreground(d):
 def start_fps(d):
     print('start_fps')
     start_app(d)  # 启动app
-    sleep(5)
+    sleep(3)
+    hideLoginDialog(d)
+    sleep(2)
 
     for i in (0, 2):
         print("i -> " + str(i))
