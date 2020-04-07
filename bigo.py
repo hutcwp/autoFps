@@ -2,7 +2,7 @@
 # ->5⃣️5s后进前台播放->6⃣️5s后退直播间，接着2⃣️到6⃣️再重复二次。
 from time import sleep
 
-app_name = "YY"
+app_name = "BIGO LIVE"
 
 
 def start_app(d):

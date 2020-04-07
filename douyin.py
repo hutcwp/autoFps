@@ -2,7 +2,7 @@
 # ->5⃣️5s后进前台播放->6⃣️5s后退直播间，接着2⃣️到6⃣️再重复二次。
 from time import sleep
 
-app_name = "YY"
+app_name = "抖音短视频"
 
 
 def start_app(d):
@@ -13,19 +13,21 @@ def start_app(d):
 
 def ent_live(d):
     print('ent_live')
-    d(resourceId="com.yy.mobile.plugin.homepage:id/living_common_container").click()
+    d(resourceId="com.ss.android.ugc.aweme:id/cj7").click()
+    # d.click(80,140)
     pass
 
 
 def quit_live(d):
     print('quit_live')
-    d(resourceId="com.yy.mobile.plugin.livebasebiz:id/btn_exit_portrait").click()
+    d(resourceId="com.ss.android.ugc.aweme:id/a4o").click()
     pass
 
 
 def swipe_live(d):
     print('swipe_live')
-    d.swipe_ext("up", box=(500, 100, 500, 1000))
+    # d.swipe_ext("up", box=(500, 100, 500, 1000))
+    d.swipe_ext("up")
     pass
 
 
@@ -76,4 +78,4 @@ def repeat_method(d):
 
 
 if __name__ == '__main__':
-    print("yy")
+    print("抖音短视频")
