@@ -1,6 +1,8 @@
 import uiautomator2 as u2
 
-from bigo import start_fps
+# from yy import start_fps
+# from bigo import start_fps
+# from bigo import start_fps
 
 d = u2.connect()  # connect to device
 print(d.info)
@@ -12,9 +14,11 @@ def dumpxml(d):
 
 
 if __name__ == '__main__':
-    print("hello world")
+    print("start test ..."
+          ""
+          "")
     # dumpxml(d)
 
-    start_fps(d)
-    # ent_live(d)
+    # start_fps(d)
 
+    print("end test ...")

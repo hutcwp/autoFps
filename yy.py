@@ -25,7 +25,13 @@ def quit_live(d):
 
 def swipe_live(d):
     print('swipe_live')
-    d.swipe_ext("up", box=(500, 100, 500, 1000))
+    width = d.info['displayWidth']
+    height = d.info['displayHeight']
+    sx = width * 0.8
+    sy = height * 0.2
+    ex = width * 0.8
+    ey = height * 0.7
+    d.swipe(sx, sy, ex, ey, 0.1)
     pass
 
 
@@ -46,7 +52,7 @@ def start_fps(d):
     start_app(d)  # 启动app
     sleep(5)
 
-    for i in (0, 2):
+    for i in (0, 1, 2):
         print("i -> " + str(i))
         repeat_method(d)
 
