@@ -1,12 +1,13 @@
 import uiautomator2 as u2
-from app import App
-from log.Log import MLog
 from time import sleep
 
-APP_NAME = "BIGO LIVE"
+from app import App
+from log.Log import MLog
+
+APP_NAME = "斗鱼直播"
 
 
-class Bigo(App):
+class DouYu(App):
 
     def __init__(self, d):
         App.__init__(self, APP_NAME, d)
@@ -18,17 +19,18 @@ class Bigo(App):
 
     def stop_app(self):
         MLog.info('finish app')
-        self.d.app_stop('sg.bigo.live')
+        self.d.app_stop('air.tv.douyu.android')
         pass
 
     def ent_live(self):
         MLog.info('ent_live')
-        self.d.xpath('//*[@resource-id="sg.bigo.live:id/recycle_view"]/android.view.ViewGroup[1]').click()
+        self.d.xpath(
+            '//*[@resource-id="air.tv.douyu.android:id/ku"]/android.view.ViewGroup[1]/android.widget.ImageView[1]').click()
         pass
 
     def quit_live(self):
         MLog.info('quit_live')
-        self.d(resourceId="sg.bigo.live:id/btn_live_video_close").click()
+        self.d(resourceId="air.tv.douyu.android:id/cn7").click()
         pass
 
     def swipe_live(self):
@@ -39,7 +41,7 @@ class Bigo(App):
         sy = height * 0.2
         ex = width * 0.8
         ey = height * 0.7
-        self.d.swipe(sx, sy, ex, ey, 0.1)
+        d.swipe(sx, sy, ex, ey, 0.1)
         pass
 
     def app_background(self):
@@ -76,5 +78,5 @@ class Bigo(App):
 
 if __name__ == '__main__':
     d = u2.connect()  # connect to device
-    bigo = Bigo(d)
-    bigo.test_fps()
+    douyu = DouYu(d)
+    douyu.test_fps()

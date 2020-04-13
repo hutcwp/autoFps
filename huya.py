@@ -1,12 +1,13 @@
 import uiautomator2 as u2
-from app import App
-from log.Log import MLog
 from time import sleep
 
-APP_NAME = "BIGO LIVE"
+from app import App
+from log.Log import MLog
+
+APP_NAME = "虎牙直播"
 
 
-class Bigo(App):
+class HuYa(App):
 
     def __init__(self, d):
         App.__init__(self, APP_NAME, d)
@@ -18,17 +19,28 @@ class Bigo(App):
 
     def stop_app(self):
         MLog.info('finish app')
-        self.d.app_stop('sg.bigo.live')
+        self.d.app_stop('com.duowan.kiwi')
         pass
 
     def ent_live(self):
         MLog.info('ent_live')
-        self.d.xpath('//*[@resource-id="sg.bigo.live:id/recycle_view"]/android.view.ViewGroup[1]').click()
+        # d.xpath(
+        #     '//*[@resource-id="com.duowan.kiwi:id/content"]'
+        #     '/android.widget.FrameLayout[1]'
+        #     '/android.widget.FrameLayout[1]'
+        #     '/androidx.recyclerview.widget.RecyclerView[1]'
+        #     '/android.widget.LinearLayout[1]'
+        #     '/android.widget.FrameLayout[1]'
+        #     '/android.widget.RelativeLayout[1]'
+        #     '/android.widget.FrameLayout[1]').click()
+        self.d.xpath(
+            '//androidx.recyclerview.widget.RecyclerView/android.widget.LinearLayout[1]'
+            '/android.widget.RelativeLayout[1]/android.widget.ImageView[1]').click()
         pass
 
     def quit_live(self):
         MLog.info('quit_live')
-        self.d(resourceId="sg.bigo.live:id/btn_live_video_close").click()
+        self.d(resourceId="com.duowan.kiwi:id/close_living_ib").click()
         pass
 
     def swipe_live(self):
@@ -76,5 +88,7 @@ class Bigo(App):
 
 if __name__ == '__main__':
     d = u2.connect()  # connect to device
-    bigo = Bigo(d)
-    bigo.test_fps()
+    app = HuYa(d)
+    MLog.info("start test...")
+    app.test_fps()
+    MLog.info("finish test...")

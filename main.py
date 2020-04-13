@@ -25,14 +25,14 @@ if __name__ == '__main__':
 
     # change_bottom_tab(d)
 
-    # swipe_up_down(d)
+    # swipe_up_down_live_room(d)
 
-    # enter_quit_live(d)
+    enter_quit_live(d)
 
     # swipe_up_down_live_room(d)
 
     # change_orientation(d)
 
-    test_start_live(d)
+    # test_start_live(d)
 
     print("end test ...")

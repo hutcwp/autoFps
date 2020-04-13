@@ -25,6 +25,15 @@ def ent_live(d):
     pass
 
 
+def ent_live_random(d):
+    no = str(get_rand_without(-1, 1, 3))
+    page = str(get_rand_without(-1, 1, 2))
+    print('ent_live_random: no = ' + no + ' page=' + page)
+    path = '//*[@resource-id="com.yy.mobile.plugin.homepage:id/rv_home_content"]/androidx.recyclerview.widget.RecyclerView[' + no + ']/android.widget.RelativeLayout[' + page + ']/android.widget.ImageView[1]'
+    d.xpath(path).click()
+    pass
+
+
 def quit_live(d):
     print('quit_live')
     d(resourceId="com.yy.mobile.plugin.livebasebiz:id/btn_exit_portrait").click()
@@ -147,12 +156,15 @@ def swipe_up_down_homepage(d):
     for i in range(1, 15):
         d.swipe(sx, sy, ex, ey, 0.1)
         print('swipe up')
+
+
+
         sleep(5)
 
 
 def swipe_up_down_live_room(d):
-    start_app(d)
-    sleep(5)
+    # start_app(d)
+    # sleep(5)
     ent_live(d)
     sleep(5)
     for i in range(1, 30):
@@ -164,10 +176,13 @@ def enter_quit_live(d):
     start_app(d)
     sleep(5)
     for i in range(1, 15):
+        # ent_live_random(d)
         ent_live(d)
         sleep(5)
         quit_live(d)
         sleep(5)
+    d.press("back")
+    d.press("back")
     pass
 
 
@@ -203,6 +218,7 @@ def test_start_live(d):
         # 停止并移除所有的监控，常用于初始化
         d.watcher.reset()
         pass
+
 
 if __name__ == '__main__':
     print("yy")

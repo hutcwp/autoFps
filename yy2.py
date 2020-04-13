@@ -3,10 +3,10 @@ from app import App
 from log.Log import MLog
 from time import sleep
 
-APP_NAME = "BIGO LIVE"
+APP_NAME = "YY"
 
 
-class Bigo(App):
+class YY(App):
 
     def __init__(self, d):
         App.__init__(self, APP_NAME, d)
@@ -18,17 +18,17 @@ class Bigo(App):
 
     def stop_app(self):
         MLog.info('finish app')
-        self.d.app_stop('sg.bigo.live')
+        self.d.app_stop('com.duowan.mobile')
         pass
 
     def ent_live(self):
         MLog.info('ent_live')
-        self.d.xpath('//*[@resource-id="sg.bigo.live:id/recycle_view"]/android.view.ViewGroup[1]').click()
+        self.d(resourceId="com.yy.mobile.plugin.homepage:id/living_common_container").click()
         pass
 
     def quit_live(self):
         MLog.info('quit_live')
-        self.d(resourceId="sg.bigo.live:id/btn_live_video_close").click()
+        self.d(resourceId="com.yy.mobile.plugin.livebasebiz:id/btn_exit_portrait").click()
         pass
 
     def swipe_live(self):
@@ -76,5 +76,5 @@ class Bigo(App):
 
 if __name__ == '__main__':
     d = u2.connect()  # connect to device
-    bigo = Bigo(d)
-    bigo.test_fps()
+    yy = YY(d)
+    yy.test_fps()
